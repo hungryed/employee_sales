@@ -1,1 +1,27 @@
 <p>List your employees here</p>
+<table cellpadding='10'>
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Salary</th>
+    <th>Net Pay</th>
+  </tr>
+    <% @employees.each do |employee| %>
+    <tr>
+      <td>
+      <% if employee.class.to_s == 'Owner'%>
+        <p style= "color:red; font-size:90px"><strong>  <%= employee.first_name %> <%= employee.last_name %></strong>
+      <% elsif employee.class.to_s.downcase.include?('salesperson') %>
+        <p style="color:green; font"><strong>  <%= employee.first_name %> <%= employee.last_name %></strong>
+      <% else %>
+        <p><%= employee.first_name %> <%= employee.last_name %>
+      <% end %>
+      </p>
+    </td>
+      <td><%= employee.class %></td>
+      <td><%= employee.salary %></td>
+      <td><%= employee.get_net_pay %></td>
+    </tr>
+    <% end %>
+
+</table>

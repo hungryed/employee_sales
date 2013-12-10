@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
   def index
-    # make your employee objects available to the correlating view here
+    @employees=Employee.get_employees(Rails.root.join("db/data/employee_info.csv"))
   end
 end

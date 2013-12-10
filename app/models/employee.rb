@@ -26,13 +26,17 @@ class Employee
     @gross_salary += @total_commission
   end
 
+  def self.get_employees(filename)
+    EmployeeReader.new(filename)
+  end
+
   def display
-    puts "***#{@first_name} #{@last_name}***"
-    puts "Gross Salary: #{@gross_salary}"
+    "***#{@first_name} #{@last_name}***"
+    "Gross Salary: #{@gross_salary}"
     yield if block_given?
-    puts "Net Salary: #{@net_pay}"
-    puts "***************************"
-    puts ""
+    "Net Salary: #{@net_pay}"
+    "***************************"
+    ""
   end
 
 end
