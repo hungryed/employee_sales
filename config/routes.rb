@@ -1,5 +1,5 @@
 Payroll::Application.routes.draw do
-  resources :sales do
+  resources :sales, only: [:index, :show] do
      root to: "sales#index"
      collection { post :import}
   end

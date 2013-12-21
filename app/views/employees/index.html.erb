@@ -1,4 +1,3 @@
-<p>List your employees here</p>
 <table cellpadding='10'>
   <tr>
     <th>Name</th>
@@ -7,10 +6,12 @@
     <th>Net Pay</th>
   </tr>
     <% @employees.each do |employee| %>
+    <% employee.commission_calculator %>
+    <% employee.met_quota? if employee.class.to_s.include?('Quota') %>
     <tr>
       <td>
       <% if employee.class.to_s == 'Owner'%>
-        <p style= "color:red; font-size:90px"><strong>  <%= employee.first_name %> <%= employee.last_name %></strong>
+        <p style= "color:red; font-size:4em"><strong>  <%= employee.first_name %> <%= employee.last_name %></strong>
       <% elsif employee.class.to_s.downcase.include?('salesperson') %>
         <p style="color:green; font"><strong>  <%= employee.first_name %> <%= employee.last_name %></strong>
       <% else %>
@@ -18,7 +19,7 @@
       <% end %>
       </p>
     </td>
-      <td><%= employee.class %></td>
+      <td><%= employee.class.to_s.scan(/[A-Z][a-z]+/).join(" ") %></td>
       <td><%= employee.salary %></td>
       <td><%= employee.get_net_pay %></td>
     </tr>

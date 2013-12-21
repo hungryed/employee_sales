@@ -1,5 +1,5 @@
 class Employee
-  attr_reader :first_name, :last_name, :salary, :monthly_salary
+  attr_reader :first_name, :last_name, :salary, :monthly_salary, :commission_rate
   attr_accessor :amount_sold , :total_commission, :gross_salary, :net_pay
 
   def initialize(first_name, last_name, salary, commission_rate)

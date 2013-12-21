@@ -9,7 +9,7 @@ class SaleReader
  end
 
  def self.import(filename)
-  CSV.foreach(filename.path, headers:true, header_converters: :symbol) do |row|
+  CSV.foreach(filename, headers:true, header_converters: :symbol) do |row|
     @sales << bake_sale(row)
   end
  end

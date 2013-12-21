@@ -14,7 +14,7 @@ class Sale
 
   def self.import(filename)
     sales = []
-    CSV.foreach(filename.path, headers:true, header_converters: :symbol) do |row|
+    CSV.foreach(filename, headers:true, header_converters: :symbol) do |row|
       sales << bake_sale(row)
     end
     sales

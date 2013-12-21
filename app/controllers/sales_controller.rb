@@ -1,11 +1,6 @@
 class SalesController < ApplicationController
   def index
-    # make your sales objects available to the correlating view here
-  end
-
-  def import
-    @sales = Sale.import(params[:file])
-    binding.pry
-    # redirect_to '/sales/' #, notice: "Sales imported"
+    @employees=Employee.get_employees(Rails.root.join("db/data/employee_info.csv"))
+    @sales = Sale.import(Rails.root.join("db/data/sales_last_month.csv"))
   end
 end
